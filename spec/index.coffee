@@ -1,10 +1,10 @@
-require 'mocha'
-chai = require('chai')
-chai.should()
+chai      = require 'chai'
 sinonChai = require 'sinon-chai'
+sinon     = require 'sinon'
+mockery   = require 'mockery'
+
 chai.use sinonChai
-sinon = require 'sinon'
-mockery = require 'mockery'
+chai.should()
 
 huggyBear = null
 
@@ -35,6 +35,7 @@ describe 'Calling for modules', ->
     huggyBear.provide.bind(undefined, {}, 'mockObject').should.throw
     huggyBear.provide.bind(undefined, {}, 'mockFn').should.not.throw
 
+
 describe 'Using a function module', ->
 
   it 'should call the function returned with the module', ->
@@ -57,6 +58,7 @@ describe 'Using a function module', ->
     ret = huggyBear.provide {}, name, arg1, arg2
     ret.should.equal obj
 
+
 describe 'Retrieving dependencies', ->
 
   it 'should always return the same instance of the evaluated module for a single source', ->
@@ -74,3 +76,5 @@ describe 'Retrieving dependencies', ->
     ret2 = huggyBear.provide {}, name
     spy.should.have.been.calledTwice
     ret1.should.not.equal ret2
+
+
