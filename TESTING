@@ -1,0 +1,33 @@
+
+> huggybear@0.0.0 cover-test /Users/xav/code/huggybear
+> `npm bin`/istanbul cover spec/runner.js 2> /dev/null
+
+
+
+  Calling for modules
+    ◦ should require to use existing modules: [2K[0G    ✓ should require to use existing modules 
+    ◦ should require to use modules returning a function: [2K[0G    ✓ should require to use modules returning a function 
+
+  Defining a mixin
+    ◦ should call the function returned with the module: [2K[0G    ✓ should call the function returned with the module 
+    ◦ should call the function with the left-most arguments: [2K[0G    ✓ should call the function with the left-most arguments 
+    ◦ should return the evaluated function module: [2K[0G    ✓ should return the evaluated function module 
+    ◦ should not be allowed to replace an existing mixin: [2K[0G    ✓ should not be allowed to replace an existing mixin 
+
+  Retrieving dependencies
+    ◦ should always return the same instance of the mixin for a single source: [2K[0G    ✓ should always return the same instance of the mixin for a single source 
+    ◦ should reevaluate the mixin for a new source: [2K[0G    ✓ should reevaluate the mixin for a new source 
+    ◦ should throw if a mixin is required for an unknown object: [2K[0G    ✓ should throw if a mixin is required for an unknown object 
+    ◦ should throw if a mixin is unknown to an object: [2K[0G    ✓ should throw if a mixin is unknown to an object 
+    ◦ should be able to retrieve a defined mixin: [2K[0G    ✓ should be able to retrieve a defined mixin 
+
+
+  11 tests complete (121 ms)
+
+
+=============================== Coverage summary ===============================
+Statements   : 100% ( 31/31 )
+Branches     : 100% ( 8/8 )
+Functions    : 100% ( 3/3 )
+Lines        : 100% ( 31/31 )
+================================================================================
