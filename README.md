@@ -25,22 +25,24 @@ __HuggyBear__ will keep your models sane and simple.
 
 ## Some code, please
 
-    var huggyBear = require('huggybear');
+````javascript
+var huggyBear = require('huggybear');
 
-    function People () {
-      huggyBear.provide(this, '/path/to/mixins/EventEmitter' /*, mixinArg1, mixinArg2 */);
-    }
+function People () {
+  huggyBear.provide(this, '/path/to/mixins/EventEmitter' /*, mixinArg1, mixinArg2 */);
+}
 
-    People.prototype = {
-      walk: function () {},
-      sleep: function () {},
-      work: function () {}
-    }
+People.prototype = {
+  walk: function () {},
+  sleep: function () {},
+  work: function () {}
+}
 
-    var ppl = new People();
-    ppl.on('eventName', function () {}); // throws TypeError, obviously
-    pplEventEmitter = huggyBear.claim('/path/to/mixins/EventEmitter');
-    pplEventEmitter.on('eventName', function () {}); //OK
+var ppl = new People();
+ppl.on('eventName', function () {}); // throws TypeError, obviously
+pplEventEmitter = huggyBear.claim('/path/to/mixins/EventEmitter');
+pplEventEmitter.on('eventName', function () {}); //OK
+````
 
 > You don't have to use the prototypal inheritance for HuggyBear to work. It's just that I'm kind of old fashioned, in some way.
 >
@@ -55,11 +57,13 @@ In other words, the `exports` of your module is the generator (_aka_ the factory
 
 ### An exemple for a mixin of `EventEmitter`
 
-    var EventEmitter = require('events').EventEmitter;
+````javascript
+var EventEmitter = require('events').EventEmitter;
 
-    module.exports = function () {
-      return new EventEmitter();
-    };
+module.exports = function () {
+  return new EventEmitter();
+};
+````
 
 For every object that wants this mixin to be provided, an instance of `Emitter` is created.
 Each object get its own instance.
@@ -70,15 +74,17 @@ Simple.
 
 You may want to bring `HuggyBear` to every object...
 
-    var huggyBear = require('huggybear');
+````javascript
+var huggyBear = require('huggybear');
 
-    Object.prototype.provide = function (/*name, arg1, arg2 */) {
-      return huggyBear.provide.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
-    }
+Object.prototype.provide = function (/*name, arg1, arg2 */) {
+  return huggyBear.provide.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
+}
 
-    Object.prototype.claim = function (/*name*/) {
-      return huggyBear.claim.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
-    }
+Object.prototype.claim = function (/*name*/) {
+  return huggyBear.claim.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
+}
+````
 
 ## Testing
 
