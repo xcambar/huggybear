@@ -1,0 +1,23 @@
+{
+  "name": "huggybear",
+  "version": "0.0.0",
+  "description": "On demand, persistent and unobstrusive dependencies",
+  "main": "index.js",
+  "scripts": {
+    "test": "`npm bin`/mocha spec/index.coffee --compilers coffee:coffee-script-redux"
+  },
+  "repository": "",
+  "author": "Xavier Cambar <xcambar@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "es6-shim": "~0.7.0"
+  },
+  "devDependencies": {
+    "mocha": "~1.9.0",
+    "chai": "~1.6.0",
+    "coffee-script-redux": "~2.0.0-beta4",
+    "mockery": "~1.4.0",
+    "sinon-chai": "~2.4.0",
+    "sinon": "~1.6.0"
+  }
+}
