@@ -4,7 +4,8 @@
   "description": "On demand, persistent and unobstrusive dependencies",
   "main": "index.js",
   "scripts": {
-    "test": "`npm bin`/istanbul cover spec/runner.js 2> /dev/null"
+    "test": "node spec/runner.js",
+    "cover-test": "`npm bin`/istanbul cover spec/runner.js 2> /dev/null"
   },
   "repository": "",
   "author": "Xavier Cambar <xcambar@gmail.com>",
