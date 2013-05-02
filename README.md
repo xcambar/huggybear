@@ -6,7 +6,7 @@
 
 ## What it does
 
-HuggyBear does "silent mixin". It creates and stores functionnality for any object without never __ever__ needing to compromise their structure or properties.
+__HuggyBear__ does "silent mixin". It creates and stores functionnality for any object without never __ever__ needing to compromise their structure or properties.
 
 ## An example
 
@@ -18,7 +18,7 @@ And now, you want the instances of `People` to do `PubSub`, then you add `publis
 
 ### So what ?
 
-So your handfully crafted `People` prototype, in the pure and beautiful simplicity of its 3 methods, has just lost its essence and is now
+So your handcrafted `People` prototype, with the pure and beautiful simplicity of its 3 methods, has just lost its essence and is now
 a kind of a hydra with 8 methods, namely `walk`, `sleep`, `work`, `on`, `off`, `emit`, `publish`, `register`.
 
 __HuggyBear__ will keep your models sane and simple.
@@ -44,9 +44,9 @@ pplEventEmitter = huggyBear.claim('/path/to/mixins/EventEmitter');
 pplEventEmitter.on('eventName', function () {}); //OK
 ````
 
-> You don't have to use the prototypal inheritance for HuggyBear to work. It's just that I'm kind of old fashioned, in some way.
+> You don't have to use the prototypal inheritance for `HuggyBear` to work. It's just that I'm kind of old fashioned, in some way.
 >
-> You don't even have to put it in the constructor, of course. Add functionnality whwnever you need to.
+> You don't even have to put it in the constructor, of course. Add functionnality whenever you need to.
 
 ## Building a mixin
 
@@ -70,7 +70,7 @@ Each object get its own instance.
 
 Simple.
 
-## Using HuggyBear globally
+## Using `HuggyBear` globally
 
 You may want to bring `HuggyBear` to every object...
 
