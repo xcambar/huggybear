@@ -21,13 +21,16 @@
     ◦ should throw if a mixin is unknown to an object: [2K[0G    ✓ should throw if a mixin is unknown to an object 
     ◦ should be able to retrieve a defined mixin: [2K[0G    ✓ should be able to retrieve a defined mixin 
 
+  Multiple containers
+    ◦ should be isolated: [2K[0G    ✓ should be isolated 
 
-  11 tests complete (121 ms)
+
+  12 tests complete (19 ms)
 
 
 =============================== Coverage summary ===============================
-Statements   : 100% ( 31/31 )
+Statements   : 100% ( 34/34 )
 Branches     : 100% ( 8/8 )
-Functions    : 100% ( 3/3 )
-Lines        : 100% ( 31/31 )
+Functions    : 100% ( 4/4 )
+Lines        : 100% ( 34/34 )
 ================================================================================

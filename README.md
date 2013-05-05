@@ -66,7 +66,7 @@ Each object get its own instance.
 
 Simple.
 
-## Using HuggyBear globally
+## HuggyBear everywhere
 
 You may want to bring `HuggyBear` to every object...
 
@@ -79,6 +79,10 @@ You may want to bring `HuggyBear` to every object...
     Object.prototype.claim = function (/*name*/) {
       return huggyBear.claim.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
     }
+
+## Inception
+
+You can use `HuggyBear` from `HuggyBear` to create multiple dependency containers, each being isolated from the other.
 
 ## Testing
 
