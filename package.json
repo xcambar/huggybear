@@ -7,7 +7,7 @@
     "test": "`npm bin`/coffee spec/runner.coffee",
     "cover-test": "`npm bin`/coffee --js < spec/runner.coffee > spec/__compiled_runner.js && `npm bin`/istanbul cover -x \"spec/**\" spec/__compiled_runner.js 2> /dev/null && rm -f spec/__compiled_runner.js"
   },
-  "repository": "",
+  "repository": "git://github.com/xcambar/huggybear.git",
   "author": "Xavier Cambar <xcambar@gmail.com>",
   "license": "MIT",
   "dependencies": {
