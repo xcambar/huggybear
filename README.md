@@ -6,7 +6,9 @@
 
 ## What it does
 
-__HuggyBear__ does "silent mixin". It creates and stores functionnality for any object without never __ever__ needing to compromise their structure or properties.
+> TL;DR; Mixins without the mess
+
+HuggyBear helps you add behaviour to your objects (typically model instances) without compromising their public signatures.
 
 ## An example
 
@@ -18,18 +20,18 @@ And now, you want the instances of `People` to do `PubSub`, then you add `publis
 
 ### So what ?
 
-So your handcrafted `People` prototype, with the pure and beautiful simplicity of its 3 methods, has just lost its essence and is now
+So your handcrafted `People` that originally contains 3 methods, has just lost its essence and is now
 a kind of a hydra with 8 methods, namely `walk`, `sleep`, `work`, `on`, `off`, `emit`, `publish`, `register`.
 
-__HuggyBear__ will keep your models sane and simple.
+__HuggyBear__ helps keeping your models sane and simple.
 
 ## Some code, please
 
 ````javascript
-var huggyBear = require('huggybear');
+var huggyBear = require('huggybear')();
 
 function People () {
-  huggyBear.provide(this, '/path/to/mixins/EventEmitter' /*, mixinArg1, mixinArg2 */);
+  huggyBear.provide(this, 'EventEmitter', new EventEmitter());
 }
 
 People.prototype = {
@@ -39,45 +41,29 @@ People.prototype = {
 }
 
 var ppl = new People();
-ppl.on('eventName', function () {}); // throws TypeError, obviously
-pplEventEmitter = huggyBear.claim('/path/to/mixins/EventEmitter');
+// They following will throw a TypeError, obviously
+ppl.on('eventName', function () {});
+
+//This is the HuggyBear way:
+pplEventEmitter = huggyBear.claim('EventEmitter');
 pplEventEmitter.on('eventName', function () {}); //OK
 ````
 
-> You don't have to use the prototypal inheritance for `HuggyBear` to work. It's just that I'm kind of old fashioned, in some way.
+> Of course, thos will work with any object
 >
-> You don't even have to put it in the constructor, of course. Add functionnality whenever you need to.
+> You don't have to put it in the constructor, of course.
+> You're free to add functionnality whenever you need to.
 
-## Building a mixin
-
-To build a mixin, you must build a CommonJS module which `exports` __MUST__ be a function.
-it can take any number of parameters, you will pass them by appending parameters to `huggyBear#provide`.
-
-In other words, the `exports` of your module is the generator (_aka_ the factory) of your mixin.
-
-### An exemple for a mixin of `EventEmitter`
-
-````javascript
-var EventEmitter = require('events').EventEmitter;
-
-module.exports = function () {
-  return new EventEmitter();
-};
-````
-
-For every object that wants this mixin to be provided, an instance of `Emitter` is created.
-Each object get its own instance.
-
-Simple.
+# Tips on using huggyBear
 
 ## HuggyBear everywhere
 
 You may want to bring `HuggyBear` to every object...
 
 ````javascript
-var huggyBear = require('huggybear');
+var huggyBear = require('huggybear')();
 
-Object.prototype.provide = function (/*name, arg1, arg2 */) {
+Object.prototype.provide = function (name, definition) {
   return huggyBear.provide.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
 }
 
@@ -85,14 +71,6 @@ Object.prototype.claim = function (/*name*/) {
   return huggyBear.claim.apply(undefined, [this].concat(Array.prototype.slice.call(arguments)));
 }
 ````
-
-## Inception
-
-You can use `HuggyBear` from `HuggyBear` to create multiple dependency containers, each being isolated from the other.
-
-## Testing
-
-The tests and coverage reports are available in the [TESTING](./TESTING) file.
 
 ## License
 

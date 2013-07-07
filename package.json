@@ -1,11 +1,12 @@
 {
   "name": "huggybear",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "On demand, persistent and unobstrusive dependencies",
   "main": "index.js",
   "scripts": {
     "test": "`npm bin`/coffee spec/runner.coffee",
-    "cover-test": "`npm bin`/coffee --js < spec/runner.coffee > spec/__compiled_runner.js && `npm bin`/istanbul cover -x \"spec/**\" spec/__compiled_runner.js 2> /dev/null && rm -f spec/__compiled_runner.js"
+    "local-coverage": "`npm bin`/coffee --js < spec/runner.coffee > spec/__compiled_runner.js && `npm bin`/istanbul cover spec/__compiled_runner.js -x \"spec/**\" 2> /dev/null && rm -f spec/__compiled_runner.js",
+    "coveralls": "`npm bin`/coffee --js < spec/runner.coffee >spec/__compiled_runner.js && `npm bin`/istanbul cover spec/__compiled_runner.js -x \"spec/**\" --report lcovonly 2> /dev/null && rm -f spec/__compiled_runner.js && `npm bin`/coveralls < ./coverage/lcov.info"
   },
   "repository": "git://github.com/xcambar/huggybear.git",
   "author": "Xavier Cambar <xcambar@gmail.com>",
