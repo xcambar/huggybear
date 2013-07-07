@@ -10,6 +10,12 @@
 
 HuggyBear helps you add behaviour to your objects (typically model instances) without compromising their public signatures.
 
+## Status
+
+[![Codeship Status for xcambar/huggybear](https://www.codeship.io/projects/721a51e0-c901-0130-f9d1-72c77f53de0a/status?branch=master) ](https://www.codeship.io/projects/4795)
+[![Coverage Status](https://coveralls.io/repos/xcambar/huggybear/badge.png)](https://coveralls.io/r/xcambar/huggybear)
+
+
 ## An example
 
 Suppose an instance of the `People` prototype, with 3 methods: `walk`, `sleep`, `work` (_very limited, huh?_).

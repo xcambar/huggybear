@@ -21,6 +21,7 @@
     "mockery": "~1.4.0",
     "sinon-chai": "~2.4.0",
     "sinon": "~1.6.0",
-    "istanbul": "~0.1.34"
+    "istanbul": "~0.1.34",
+    "coveralls.io": "2.1.0 "
   }
 }
