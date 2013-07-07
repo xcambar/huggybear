@@ -47,15 +47,15 @@ People.prototype = {
 }
 
 var ppl = new People();
-// They following will throw a TypeError, obviously
+// The following will throw a TypeError, obviously
 ppl.on('eventName', function () {});
 
 //This is the HuggyBear way:
-pplEventEmitter = huggyBear.claim('EventEmitter');
+pplEventEmitter = huggyBear.claim(ppl, 'EventEmitter');
 pplEventEmitter.on('eventName', function () {}); //OK
 ````
 
-> Of course, thos will work with any object
+> Of course, this will work with any object
 >
 > You don't have to put it in the constructor, of course.
 > You're free to add functionnality whenever you need to.
